@@ -21,6 +21,24 @@
                 <x-mary-input type="email" name="email" id="email" placeholder="Enter your email"
                     :value="isset($user) ? $user->email : old('email')" class="input input-bordered w-full" required />
             </div>
+            @php
+            $roles = [
+            [
+            'id' => 1,
+            'name' => 'admin'
+            ],
+            [
+            'id' => 2,
+            'name' => 'user'
+            ]
+            ];
+            @endphp
+            <div class="mb-3">
+                <label for="role" class="form-label">Role</label>
+                <x-mary-select icon="o-user" :options="$roles" wire:model="selectedRole" />
+            </div>
+
+
 
             {{-- Input untuk Password --}}
             <div class="mb-3">
